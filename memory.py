@@ -13,7 +13,7 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA','BB','CC','DD','EE','FF']*2
+tiles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f']*2
 state = {'mark': None}
 hide = [True] * 64
 
@@ -66,7 +66,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 17, y  + 7)
         color('black')
         write(tiles[mark], font=('Arial', 20, 'normal'))
 
