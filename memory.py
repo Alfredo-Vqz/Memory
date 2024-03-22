@@ -8,20 +8,17 @@ Exercises:
 4. Center single-digit tile.
 5. Use letters instead of tiles.
 """
-
 from random import *
 from turtle import *
-
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+tiles = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA','BB','CC','DD','EE','FF']*2
 state = {'mark': None}
 hide = [True] * 64
 
-
 def square(x, y):
-    """Draw white square with black outline at (x, y)."""
+    "Draw white square with black outline at (x, y)."
     up()
     goto(x, y)
     down()
@@ -32,19 +29,16 @@ def square(x, y):
         left(90)
     end_fill()
 
-
 def index(x, y):
-    """Convert (x, y) coordinates to tiles index."""
+    "Convert (x, y) coordinates to tiles index."
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
 
-
 def xy(count):
-    """Convert tiles count to (x, y) coordinates."""
+    "Convert tiles count to (x, y) coordinates."
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
-
 def tap(x, y):
-    """Update mark and hidden tiles based on tap."""
+    "Update mark and hidden tiles based on tap."
     spot = index(x, y)
     mark = state['mark']
 
@@ -55,9 +49,8 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
-
 def draw():
-    """Draw image and tiles."""
+    "Draw image and tiles."
     clear()
     goto(0, 0)
     shape(car)
@@ -75,11 +68,10 @@ def draw():
         up()
         goto(x + 2, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 20, 'normal'))
 
     update()
     ontimer(draw, 100)
-
 
 shuffle(tiles)
 setup(420, 420, 370, 0)
